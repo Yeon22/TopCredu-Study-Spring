@@ -1,8 +1,8 @@
 package edu.biz.ioc;
 
 import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.*;
-import org.springframework.core.io.*;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.FileSystemResource;
 
 public class OrderManagerApp {
 
