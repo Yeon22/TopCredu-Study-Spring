@@ -8,9 +8,11 @@
    <bean id="daewooMaker" class="edu.biz.ioc.DaewooMaker"/>
    
    <bean id="orderManager" class="edu.biz.ioc.OrderManager">
-	   <property name="maker"> <!-- 세터 주입을 의미 : setMaker에 주입한다. -->
-			<ref bean="hyundaiMaker"/> <!-- 이부분을 수정하면 소스 수정없이 maker 교체가능 -->
-	   </property>
+	   <constructor-arg> <!-- 생성자 주입 -->
+			<ref bean="daewooMaker"/> <!-- 이부분을 수정하면 소스 수정없이 maker 교체가능 -->
+	   </constructor-arg> 
+	   <!-- <constructor-arg ref="daewooMaker"/> 이렇게 줄여서도 쓸 수 있음.-->
+	   
    </bean>
    
 </beans>
