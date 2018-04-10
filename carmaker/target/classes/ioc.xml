@@ -3,5 +3,14 @@
    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-   <bean id="orderManager" class="edu.biz.ioc.OrderManager"/>
+   
+   <bean id="hyundaiMaker" class="edu.biz.ioc.HyundaiMaker"/>
+   <bean id="daewooMaker" class="edu.biz.ioc.DaewooMaker"/>
+   
+   <bean id="orderManager" class="edu.biz.ioc.OrderManager">
+	   <property name="maker"> <!-- 세터 주입을 의미 : setMaker에 주입한다. -->
+			<ref bean="hyundaiMaker"/> <!-- 이부분을 수정하면 소스 수정없이 maker 교체가능 -->
+	   </property>
+   </bean>
+   
 </beans>
