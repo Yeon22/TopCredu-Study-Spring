@@ -1,14 +1,16 @@
 package edu.biz.ioc4;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service("orderManager")
 public class OrderManager {
-	@Resource(name="daewoo")
+	@Inject
+	@Named("daewoo")
+//	@Resource(name="daewoo")
 	private CarMaker maker;
 	
 	@Resource(name="money") //TYPE이 Money인 것을 찾아 자동 주입
