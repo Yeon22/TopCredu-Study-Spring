@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("productServicelmpl")
 public class ProductServicelmpl implements ProductService{
 
 	public List<Product> listProducts() {

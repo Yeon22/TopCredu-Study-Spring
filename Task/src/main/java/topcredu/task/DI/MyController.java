@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-@Controller
+@Controller("myController")
 public class MyController {
-	private ProductServicelmpl productService;
+	private ProductService productService;
 	
-	@Qualifier
+	@Autowired
 	public void setProductService(ProductService productService) {
-		this.productService = (ProductServicelmpl) productService;
+		this.productService = productService;
 	}
 	
 	public List<Product> getProducts(){

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 public class Product {
 	private String description;
 	
+	public Product() {}
+	
 	public Product(String description) {
 		this.description = description;
 	}
