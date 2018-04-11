@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+	<aop:aspectj-autoproxy />
+	
+	<!-- Definition for pringMsg bean, 타겟클래스 -->
+	<bean id="printMsg" class="aophello2.PrintMsg"/>
+	
+	<!-- Definition for logging aspect 충고들이 모여있는 Aspect 클래스 -->
+	<bean id="logging" class="aophello2.LogginAspect"/>
+</beans>
