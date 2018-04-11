@@ -16,5 +16,5 @@
 	<bean id="printMsg" class="aophello1.PrintMsg"/>
 	
 	<!-- Definition for logging aspect 충고들이 모여있는 Aspect 클래스 -->
-	<bean id="logging" class="aophello1.LogginAspect"/>
+	<bean id="logging" class="aophello1.LoggingAspect"/>
 </beans>
