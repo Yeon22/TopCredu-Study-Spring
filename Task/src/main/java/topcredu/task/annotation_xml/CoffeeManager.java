@@ -6,12 +6,9 @@ import org.springframework.stereotype.Component;
 
 @Component("coffeeManager")
 public class CoffeeManager {
-	@Qualifier("phillips")
-	
 	@Autowired
+	@Qualifier("phillips")
 	private CoffeeMaker maker;
-	
-	public CoffeeManager() {}
 	
 	public void order() {
 		this.maker.coffeeExtrct();
