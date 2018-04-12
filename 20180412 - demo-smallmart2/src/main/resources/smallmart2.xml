@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<aop:config>
-		<aop:pointcut expression="execution(* onj.hello.aop2..getProducts*(String)) and bean(smallMart)" id="onjpointcut"/>
+		<aop:pointcut expression="execution(* onj.hello.aop2..getProducts*(String)) and bean(smallMart*)" id="onjpointcut"/>
 		<aop:aspect ref="advice">
 			<aop:before method="before" pointcut-ref="onjpointcut"/>
 			<aop:after-returning method="afterReturning" pointcut-ref="onjpointcut"/>
