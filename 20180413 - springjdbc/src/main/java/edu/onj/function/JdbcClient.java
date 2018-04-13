@@ -25,12 +25,13 @@ public class JdbcClient {
 		emps.clear();
 		
 		//2.BatchPreparedStatementSetter를 이용하여 List에 있는것을 일괄 INSERT
-//		emps.add(new Emp("9701", "1001 길동", "10010"));
-//		emps.add(new Emp("9702", "1002 길동", "10020"));
-//		emps.add(new Emp("9703", "1003 길동", "10030"));
-//		emps.add(new Emp("9704", "1004 길동", "10040"));
-//		emps.add(new Emp("9705", "1005 길동", "10050"));
-//		empDao.createEmpList(emps);
+		emps.add(new Emp("2701", "1001 길동", "10010"));
+		emps.add(new Emp("2702", "1002 길동", "10020"));
+		emps.add(new Emp("2703", "1003 길동", "10030"));
+		emps.add(new Emp("2704", "1004 길동", "10040"));
+		emps.add(new Emp("2705", "1005 길동", "10050"));
+		empDao.createEmpList(emps);
+		System.out.println(emps);
 		
 		//3.Spring JDBC SimpleJdbcCall을 이용한 오라클 함수(ref cursor 리턴)호출을 통한 10번 부서 EMP 호출
 		ArrayList<Emp> emps2 = (ArrayList<Emp>)empDao.listEmp(new Integer(10));
