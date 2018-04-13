@@ -36,10 +36,12 @@ public class DemoPersonApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		personDAO.setJdbcTemplate(jdbcTemplate);
 		personDAO.setTransactionTempalte(new TransactionTemplate(transactionManager(dataSource)));
+		personDAO.setTransactionManager(transactionManager(dataSource));
 		
 		Person person = new Person("Java", "Honk", "John st.","NY", "NY", "USA");
 		
 		personDAO.insertUser(person);
+		personDAO.insertUse2(person);
 		
 		personDAO.deletePerson(1);
 		
