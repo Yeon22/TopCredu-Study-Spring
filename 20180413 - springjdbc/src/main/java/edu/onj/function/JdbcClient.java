@@ -25,11 +25,11 @@ public class JdbcClient {
 		emps.clear();
 		
 		//2.BatchPreparedStatementSetter를 이용하여 List에 있는것을 일괄 INSERT
-		emps.add(new Emp("4711", "1001 ins1", "10010"));
-		emps.add(new Emp("4712", "1002 ins2", "10020"));
-		emps.add(new Emp("4713", "1003 ins3", "10030"));
-		emps.add(new Emp("4714", "1004 ins4", "10040"));
-		emps.add(new Emp("4715", "1005 ins5", "10050"));
+		emps.add(new Emp("2701", "1001 길동", "10010"));
+		emps.add(new Emp("2702", "1002 길동", "10020"));
+		emps.add(new Emp("2703", "1003 길동", "10030"));
+		emps.add(new Emp("2704", "1004 길동", "10040"));
+		emps.add(new Emp("2705", "1005 길동", "10050"));
 		empDao.createEmpList(emps);
 		System.out.println(emps);
 		
