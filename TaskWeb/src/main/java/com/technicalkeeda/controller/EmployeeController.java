@@ -29,7 +29,7 @@ public class EmployeeController {
 			return new ResponseEntity<List<Employee>>(HttpStatus.NOT_FOUND);
 		}
 		
-		headers.add("Number Of REcords Found", String.valueOf(employees.size()));
+		headers.add("Number Of Records Found", String.valueOf(employees.size()));
 		
 		return new ResponseEntity<List<Employee>>(employees, headers, HttpStatus.OK);
 	}
