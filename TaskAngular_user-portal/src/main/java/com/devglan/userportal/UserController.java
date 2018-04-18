@@ -23,30 +23,18 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping
-	public User create(@RequestBody User user) {
+	public User create(@RequestBody User user) throws Exception {
+		System.out.println("이메일 : " + user.getEmail());
+		
+		//예외처리
+		if(user.getEmail().equals(null)) throw new Exception();
+		
 		return userService.create(user);
 	}
 	
 	@GetMapping(path = {"/{id}"})
 	public User findOne(@PathVariable("id") int id) {
-		if(userService.findById(id) == null)
-			try {
-				throw new UserNotFoundException(id);
-			} catch (UserNotFoundException e) {
-				e.printStackTrace();
-			}
-		
 		return userService.findById(id);
-	}
-	
-	@ExceptionHandler(UserNotFoundException.class)
-	public ModelAndView exHandler(HttpServletRequest request, Exception ex) {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("exception", ex);
-		modelAndView.addObject("url", request.getRequestURL());
-		modelAndView.setViewName("error");
-		
-		return modelAndView;
 	}
 	
 	@PutMapping
