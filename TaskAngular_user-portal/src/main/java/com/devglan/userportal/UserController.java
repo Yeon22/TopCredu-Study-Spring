@@ -39,7 +39,6 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-
 	@ExceptionHandler(UserNotFoundException.class)
 	public ModelAndView exHandler(HttpServletRequest request, Exception ex) {
 		ModelAndView modelAndView = new ModelAndView();
