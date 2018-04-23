@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpRequest, HttpEvent} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UploadFileService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
-    let formdata: FormData = new FormData();
+    const formdata: FormData = new FormData();
 
     formdata.append('file', file);
 
@@ -20,7 +20,7 @@ export class UploadFileService {
     return this.http.request(req);
   }
 
-  getFiles(): Observable<string[]> {
-    return this.http.get('/getallfiles')
+  getFiles(): Observable<any> {
+    return this.http.get('/getallfiles');
   }
 }

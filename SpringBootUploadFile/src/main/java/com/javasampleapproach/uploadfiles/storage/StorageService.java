@@ -1,6 +1,7 @@
 package com.javasampleapproach.uploadfiles.storage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,9 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class StorageService {
+ 
 	Logger log = LoggerFactory.getLogger(this.getClass().getName());
 	private final Path rootLocation = Paths.get("upload-dir");
-	
+ 
 	public void store(MultipartFile file) {
 		try {
 			Files.copy(file.getInputStream(), this.rootLocation.resolve(file.getOriginalFilename()));
@@ -25,25 +27,25 @@ public class StorageService {
 			throw new RuntimeException("FAIL!");
 		}
 	}
-	
+ 
 	public Resource loadFile(String filename) {
 		try {
 			Path file = rootLocation.resolve(filename);
 			Resource resource = new UrlResource(file.toUri());
-			if(resource.exists() || resource.isReadable()) {
+			if (resource.exists() || resource.isReadable()) {
 				return resource;
 			} else {
 				throw new RuntimeException("FAIL!");
 			}
-		} catch (Exception e) {
+		} catch (MalformedURLException e) {
 			throw new RuntimeException("FAIL!");
 		}
 	}
-	
+ 
 	public void deleteAll() {
 		FileSystemUtils.deleteRecursively(rootLocation.toFile());
 	}
-	
+ 
 	public void init() {
 		try {
 			Files.createDirectory(rootLocation);

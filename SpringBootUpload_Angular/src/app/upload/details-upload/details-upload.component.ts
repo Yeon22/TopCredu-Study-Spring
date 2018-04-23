@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'details-upload',
@@ -9,7 +9,7 @@ export class DetailsUploadComponent implements OnInit {
 
   @Input() fileUpload: string;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
