@@ -44,4 +44,78 @@ public class Pager {
 	public static int seekEnd(int page, int size) {
 		return page * size;
 	}
+
+	//Getters and Setters
+	
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getBsize() {
+		return bsize;
+	}
+
+	public void setBsize(int bsize) {
+		this.bsize = bsize;
+	}
+
+	public int getRows() {
+		return rows;
+	}
+
+	public void setRows(int rows) {
+		this.rows = rows;
+	}
+
+	public int getPages() {
+		return pages;
+	}
+
+	public void setPages(int pages) {
+		this.pages = pages;
+	}
+
+	public int getBlocks() {
+		return blocks;
+	}
+
+	public void setBlocks(int blocks) {
+		this.blocks = blocks;
+	}
+
+	public int getBlock() {
+		return block;
+	}
+
+	public void setBlock(int block) {
+		this.block = block;
+	}
+
+	public int getBspage() {
+		return bspage;
+	}
+
+	public void setBspage(int bspage) {
+		this.bspage = bspage;
+	}
+
+	public int getBepage() {
+		return bepage;
+	}
+
+	public void setBepage(int bepage) {
+		this.bepage = bepage;
+	}
 }
