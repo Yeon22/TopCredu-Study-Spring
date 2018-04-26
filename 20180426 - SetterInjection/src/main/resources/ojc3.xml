@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="programmer" class="edu.ojc.constructor1.Programmer" />
+	<bean id="designer" class="edu.ojc.constructor1.Designer" />
+	<bean id="develope" class="edu.ojc.constructor1.Develope" c:emp-ref="programmer" />
+	
+	<!-- 
+	<bean id="develope" class="edu.ojc.setter1.Develope">
+		<constructor-arg ref="programmer" />
+	</bean>
+	 -->
+
+</beans>
