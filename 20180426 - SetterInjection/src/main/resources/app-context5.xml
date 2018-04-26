@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="onj" name="onjName" class="onj.injection.collection.Onj" />
+	<bean id="sample" class="onj.injection.collection.CollectionExam">
+		<property name="map">
+			<map>
+				<entry key="someValue">
+					<value>hello map...</value>
+				</entry>
+				<entry key="someBean">
+					<ref bean="onj"/>
+				</entry>
+			</map>
+		</property>
+		
+		<property name="set">
+			<set>
+				<value>hello list...</value>
+				<ref bean="onj"/>
+			</set>
+		</property>
+		
+		<property name="props">
+			<props>
+				<prop key="firstName">long Cheol</prop>
+				<prop key="lastName">Lee</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
