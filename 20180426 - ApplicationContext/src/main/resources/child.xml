@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="target1" class="onj.context.overlap.Onj">
+		<property name="val1">
+			<ref bean="parent1"/>
+		</property>
+	</bean>
+	
+	<bean id="target2" class="onj.context.overlap.Onj">
+		<property name="val2">
+			<ref parent="parent2"/> <!-- 부모 context에서 parent2라는 id, name을 검색 -->
+		</property>
+	</bean>
+	
+	<bean id="parent2" class="java.lang.String">
+		<constructor-arg>
+			<value>cild bean 2</value>
+		</constructor-arg>
+	</bean>
+
+</beans>
