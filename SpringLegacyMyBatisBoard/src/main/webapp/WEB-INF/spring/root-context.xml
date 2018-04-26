@@ -42,17 +42,4 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-	<!-- 충고 설정 -->
-	<aop:config>
-		<aop:aspect id="myAspect" ref="advice">
-			<aop:pointcut id="pointcut" expression="execution(* com.example.web.controller.*.*(..))"/>
-			
-			<aop:before pointcut-ref="pointcut" method="before"/>
-			<aop:after-returning pointcut-ref="pointcut" method="afterReturning"/>
-			<aop:around pointcut-ref="pointcut" method="around"/>
-		</aop:aspect>
-	</aop:config>
-	
-	<bean id="advice" class="com.example.advice.MyAdvice" />
-	
 </beans>
