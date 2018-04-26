@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="myemp" class="edu.ojc2.Designer" /> -->
+	<bean id="myemp" class="edu.ojc2.Programmer" />
+	<!-- 
+		아래 lookup-method는 메소드를 런타임중에 새로운 구현으로 대체 Getter주입은 Setter Injection의 역으로 생각.
+		getEmp()를 호출할 때마다 다른 myemp가 반환. 그러나 Getter Injection은 단 한번만 주입되는 메소드명이 반드시
+		getXXX로 시작할 필요는 없다.
+	 -->
+	 <bean id="emp" class="edu.ojc2.Emp">
+	 	<lookup-method name="getEmp" bean="myemp"/>
+	 </bean>
+
+</beans>
