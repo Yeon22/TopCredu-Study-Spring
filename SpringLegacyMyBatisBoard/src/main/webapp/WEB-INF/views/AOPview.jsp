@@ -15,10 +15,14 @@
 .pagination{
 	margin: 0px !important;
 }
+
+th, td{
+	text-align: center;
+}
 </style>
 </head>
 <body>
-	<h2>AOP Table</h2>
+	<h2 style="text-align: center;">AOP Table</h2>
 	<table class="table table-condensed table-hover table-striped">
 		<thead>
 			<tr>
