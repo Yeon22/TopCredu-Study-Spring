@@ -31,7 +31,7 @@
 	</interceptors>
 	
 	
-	<!-- 충고 설정 -->
+	<!--
 	<aop:config>
 		<aop:aspect id="myAspect" ref="advice">
 			<aop:pointcut id="pointcut" expression="execution(* com.example.web.controller.*.*(..))"/>
@@ -43,5 +43,7 @@
 	</aop:config>
 	
 	<beans:bean id="advice" class="com.example.advice.MyAdvice" />
+	<beans:bean id="adviceModel" class="com.example.advice.AdviceModel" />
+	-->
 
 </beans:beans>

@@ -29,6 +29,7 @@
 						<li><a href="#">One more separated link</a></li>
 					</ul>
 				</li>
+				<li><a href="aop">AOP</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${not empty user }">

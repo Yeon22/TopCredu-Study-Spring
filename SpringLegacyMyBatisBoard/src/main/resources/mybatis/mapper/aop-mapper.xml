@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.advice.AdviceMapper">
+	
+	<resultMap type="AdviceModel" id="adviceResultMap">
+		<result property="Name" column="NAME" />
+		<result property="pointcut" column="POINTCUT" />
+		<result property="elapsedtime" column="ELAPSEDTIME" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="AdviceModel">
+		INSERT INTO YEONAOP(Name, pointcut, elapsedtime)
+		VALUES(#{Name}, #{pointcut}, #{elapsedtime})
+	</insert>
+	
+</mapper>

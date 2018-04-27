@@ -1,27 +1,65 @@
 package com.example.advice;
 
-import org.aspectj.lang.JoinPoint;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
+@EnableAspectJAutoProxy
+@Aspect
+@Component
 public class MyAdvice {
-	public void before(JoinPoint joinPoint) {
-		System.out.println(joinPoint.getSignature().getName() + " : 사전충고");
+	@Autowired
+	AdviceMapper adviceMapper;
+	
+	@ModelAttribute("active")
+	public String active() {
+		return "AdviceModel";
 	}
 	
-	public void afterReturning(JoinPoint joinPoint) {
-		System.out.println(joinPoint.getSignature().getName() + " : 사후충고");
+	protected Log log = LogFactory.getLog((AdviceModel.class));
+	public MyAdvice() {
+		System.out.println("--------------------------------Aspect-------------------------------");
 	}
 	
-	public Object around(ProceedingJoinPoint pjp) throws Throwable {
-		long start = System.currentTimeMillis();
-		System.out.println("[주변충고] 시작 시간 : " + start/1000.0 + " 초");
-		
+	@Around("execution(* com.example.web.controller.*.*(..))")
+	public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable {
+		StopWatch stopWatch = new StopWatch();
+		stopWatch.start();
 		Object obj = pjp.proceed();
+		stopWatch.stop();
+		Double elapseTimeBySecond = stopWatch.getTotalTimeSeconds();
+		System.out.println("------------------- 메소드 소요시간 = " + elapseTimeBySecond + " 초 -------------------------------");
 		
-		long end = System.currentTimeMillis();
-		System.out.println("[주변충고] 종료 시간 : " + end/1000.0 + " 초");
-		
+		AdviceModel adviceModel = new AdviceModel();
+		adviceModel.setName("수연");
+		adviceModel.setPointcut("pointInset()");
+		adviceModel.setElapsedtime(elapseTimeBySecond + " 초");
+		adviceMapper.insert(adviceModel);
 		
 		return obj;
 	}
+	
+//	public Object around(ProceedingJoinPoint pjp) throws Throwable {
+//		String findName = pjp.getSignature().getName();
+//		
+//		long longstart = System.currentTimeMillis();
+//		int starttime = (int) (longstart / 1000.0 );
+//		System.out.println("[주변충고] getName : " + findName + " / 시작 시간 : " + starttime/1000.0 + " 초");
+//		
+//		Object obj = pjp.proceed();
+//		System.out.println("obj : " + obj);
+//		
+//		long longend = System.currentTimeMillis();
+//		int endtime = (int) (longend / 1000.0);
+//		System.out.println("[주변충고]  getName : " + findName + " / 종료 시간 : " + endtime/1000.0 + " 초");
+//		
+//		return obj;
+//	}
 }

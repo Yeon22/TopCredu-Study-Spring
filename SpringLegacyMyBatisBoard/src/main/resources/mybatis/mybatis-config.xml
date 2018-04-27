@@ -11,5 +11,6 @@
 	<typeAliases>
 		<package name="com.example.board.model" />
 		<package name="com.example.user.model" />
+		<package name="com.example.advice"/>
 	</typeAliases>
 </configuration>

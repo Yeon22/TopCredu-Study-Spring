@@ -29,7 +29,7 @@
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.example.board.repository,com.example.user.repository" />
+		<property name="basePackage" value="com.example.board.repository,com.example.user.repository,com.example.advice" />
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
