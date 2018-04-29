@@ -28,6 +28,9 @@
 		SELECT * FROM xboard WHERE id=#{id}
 	</select>
 	
+	<select id="selectByTitle" parameterType="String" resultMap="boardResultMap">
+		SELECT * FROM xboard WHERE title=#{title}
+	</select>
 	
 	<select id="selectByLimit" resultType="Board">
 		<bind name="start" value="@com.example.board.dto.Pager@seekStart(page, size)"/>

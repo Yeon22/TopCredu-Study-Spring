@@ -28,14 +28,14 @@ public class MyAdvice {
 		System.out.println("--------------------------------Aspect-------------------------------");
 	}
 	
-	@Around("execution(* com.example.web.controller.*.*(..))")
+	@Around("execution(* com.example.web.controller.BoardController.postInsert(..))")
 	public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable {
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		Object obj = pjp.proceed();
 		stopWatch.stop();
 		Double elapseTimeBySecond = stopWatch.getTotalTimeSeconds();
-		System.out.println("------------------- 메소드 소요시간 = " + elapseTimeBySecond + " 초 -------------------------------");
+		System.out.println("------------------- postInsert() 메소드 소요시간 = " + elapseTimeBySecond + " 초 -------------------------------");
 		
 		AdviceModel adviceModel = new AdviceModel();
 		adviceModel.setName("수연");

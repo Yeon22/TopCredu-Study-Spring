@@ -22,4 +22,6 @@ public interface BoardMapper {
 	public Board selectById(long id);
 	public List<Board> selectByLimit(@Param("page") int page, @Param("size") int size);
 	public int increment(@Param("id") long id, @Param("requester") String requester);
+	
+	public Board selectByTitle(String title);
 }

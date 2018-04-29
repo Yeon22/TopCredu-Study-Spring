@@ -23,6 +23,12 @@
 
 	<div class="bs-example">
 		<h2>Board</h2>
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="float: right; padding-bottom: 10px;">
+			<input name="title" type="text" style="border: 2px solid grey; height: 30px; width: 300px;"/>
+			<span class="pull-right"> 
+				<a href="<c:url value='/boards'/>" class="btn btn-primary">Search</a>
+			</span>
+		</div>
 		<table class="table table-condensed table-hover table-striped">
 			<thead>
 				<tr>
