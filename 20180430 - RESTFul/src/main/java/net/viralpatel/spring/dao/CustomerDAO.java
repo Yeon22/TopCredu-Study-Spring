@@ -11,7 +11,7 @@ import net.viralpatel.spring.model.Customer;
 public class CustomerDAO {
 
 	// Dummy database. Initialize with some dummy values.
-	private static List <Customer>customers;
+	private static List<Customer> customers;
 	{
 		customers = new ArrayList();
 		customers.add(new Customer(101, "John", "Doe", "djohn@gmail.com", "121-232-3435"));

@@ -3,7 +3,6 @@ package net.viralpatel.spring.model;
 import java.util.Date;
 
 public class Customer {
-
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -23,7 +22,6 @@ public class Customer {
 	public Customer() {
 	}
 
-	//..Getter and setter methods
 	public Long getId() {
 		return id;
 	}
@@ -71,5 +69,4 @@ public class Customer {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-
 }
