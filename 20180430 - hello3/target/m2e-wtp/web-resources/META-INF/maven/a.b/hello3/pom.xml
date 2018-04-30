@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>a.b</groupId>
 	<artifactId>hello3</artifactId>
-	<name>20180430 - hello3</name>
+	<name>hello3</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -31,6 +31,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency> <!-- 파싱할 때 한글때문에 오류날 때  -->
+		    <groupId>xerces</groupId>
+		    <artifactId>xercesImpl</artifactId>
+		    <version>2.9.1</version>
 		</dependency>
 				
 		<!-- AspectJ -->
