@@ -40,12 +40,6 @@ public class BoardController {
 		return mav;
 	}
 	
-	@GetMapping("/boards/{title}")
-	public String searchTitle(@PathVariable String title, HttpSession session, Model model) {
-		model.addAttribute("board", boardMapper.selectByTitle(title));
-		return "boards";
-	}
-	
 	@GetMapping("/view/{id}")
 	public String getBoardView(@PathVariable long id, HttpSession session, Model model) {
 		User user = (User) session.getAttribute("user");
