@@ -20,15 +20,28 @@
 </head>
 <body>
 	<c:import url="nav_top.jsp"></c:import>
+	
+	<!-- search bar -->
+	<div id="search" class="col-xs-8 col-sm-8 col-md-8 col-lg-8"
+		style="text-align: center; float: left">
+		
+		<!--  수정  -->
+		<form action="<c:url value='/boards/search/${search}'/>" id="search" method="get">
+			<div class="search">
+				<select name="keyfield" id="keyfield">
+					<option value="title">제목</option>
+					<option value="writer">이름</option>
+					<option value="content">내용</option>
+					<option value="all">전체</option>
+				</select> 
+				<input type="text" size="16" name="keyword" id="keyword"> 
+				<input type="submit" value="찾기">
+			</div>
+		</form>
+	</div>
 
 	<div class="bs-example">
 		<h2>Board</h2>
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="float: right; padding-bottom: 10px;">
-			<input name="title" type="text" style="border: 2px solid grey; height: 30px; width: 300px;"/>
-			<span class="pull-right"> 
-				<a href="<c:url value='/boards'/>" class="btn btn-primary">Search</a>
-			</span>
-		</div>
 		<table class="table table-condensed table-hover table-striped">
 			<thead>
 				<tr>

@@ -17,6 +17,19 @@
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.ecf/org.eclipse.ecf -->
+		<dependency>
+		    <groupId>org.eclipse.ecf</groupId>
+		    <artifactId>org.eclipse.ecf</artifactId>
+		    <version>3.8.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -45,6 +58,13 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aop</artifactId>
+		    <version>4.3.16.RELEASE</version>
 		</dependency>
 
 		<dependency>

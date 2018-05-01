@@ -40,6 +40,37 @@ public class BoardController {
 		return mav;
 	}
 	
+	@GetMapping("/search")
+	public ModelAndView getSearch(
+			@RequestParam(name = "page", required = false, defaultValue = "1") int page,
+			@RequestParam(name = "size", required = false, defaultValue = "10") int size,
+			@RequestParam(name = "bsize", required = false, defaultValue = "5") int bsize,
+			@RequestParam(value = "keyfield", defaultValue = "") String keyfield,
+			@RequestParam(value = "keyword", defaultValue = "") String keyword) {
+		System.out.println(keyfield);
+		System.out.println(keyword);
+		
+		ModelAndView mav = new ModelAndView("board_list");
+		
+		if(keyfield.equals("title")) {
+			mav.addObject("boards", boardMapper.searchSelectByTitle(page, bsize, keyword));
+			mav.addObject("pager", new Pager(page, size, bsize, boardMapper.countByTitle(keyword)));
+		} else if(keyfield.equals("writer")) {
+			mav.addObject("boards", boardMapper.searchSelectByWriter(page, bsize, keyword));
+			mav.addObject("pager", new Pager(page, size, bsize, boardMapper.countByWriter(keyword)));
+		} else if(keyfield.equals("content")) {
+			mav.addObject("boards", boardMapper.searchSelectByContent(page, bsize, keyword));
+			mav.addObject("pager", new Pager(page, size, bsize, boardMapper.countByContent(keyword)));
+		} else if(keyfield.equals("all")) {
+			mav.addObject("boards", boardMapper.searchSelectByAll(page, bsize, keyword));
+			mav.addObject("pager", new Pager(page, size, bsize, boardMapper.countByAll(keyword)));
+		}
+		
+		System.out.println("³¡");
+		
+		return mav;
+	}
+	
 	@GetMapping("/view/{id}")
 	public String getBoardView(@PathVariable long id, HttpSession session, Model model) {
 		User user = (User) session.getAttribute("user");

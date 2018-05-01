@@ -46,4 +46,64 @@
 		UPDATE xboard SET hit_count=hit_count+1 WHERE id=#{id} and writer!=#{requester}
 	</update>
 	
+	<select id="searchSelectByTitle" resultType="Board">
+		<bind name="start" value="@com.example.board.dto.Pager@seekStart(page, size)"/>
+		<bind name="end" value="@com.example.board.dto.Pager@seekEnd(page, size)"/>
+		SELECT * FROM (
+			SELECT ROWNUM AS rnum, b.* FROM (
+				SELECT * FROM xboard WHERE title LIKE '%' || #{title} || '%' ORDER BY id DESC
+			) b
+		) WHERE rnum &gt; = #{start} AND rnum &lt; = #{end}
+	</select>
+	
+	<select id="searchSelectByWriter" parameterType="String" resultType="Board">
+		<bind name="start" value="@com.example.board.dto.Pager@seekStart(page, size)"/>
+		<bind name="end" value="@com.example.board.dto.Pager@seekEnd(page, size)"/>
+		SELECT * FROM (
+			SELECT ROWNUM AS rnum, b.* FROM (
+				SELECT * FROM xboard WHERE writer LIKE '%' || #{writer} || '%' ORDER BY id DESC
+			) b
+		) WHERE rnum &gt; = #{start} AND rnum &lt; = #{end}
+	</select>
+	
+	<select id="searchSelectByContent" parameterType="String" resultType="Board">
+		<bind name="start" value="@com.example.board.dto.Pager@seekStart(page, size)"/>
+		<bind name="end" value="@com.example.board.dto.Pager@seekEnd(page, size)"/>
+		SELECT * FROM (
+			SELECT ROWNUM AS rnum, b.* FROM (
+				SELECT * FROM xboard WHERE content LIKE '%' || #{content} || '%' ORDER BY id DESC
+			) b
+		) WHERE rnum &gt; = #{start} AND rnum &lt; = #{end}
+	</select>
+	
+	<select id="searchSelectByAll" parameterType="String" resultType="Board">
+		<bind name="start" value="@com.example.board.dto.Pager@seekStart(page, size)"/>
+		<bind name="end" value="@com.example.board.dto.Pager@seekEnd(page, size)"/>
+		SELECT * FROM (
+			SELECT ROWNUM AS rnum, b.* FROM (
+				SELECT * FROM xboard WHERE title LIKE '%' || #{all} || '%'
+				OR writer LIKE '%' || #{all} || '%'
+				OR content LIKE '%' || #{all} || '%' ORDER BY id DESC
+			) b
+		) WHERE rnum &gt; = #{start} AND rnum &lt; = #{end}
+	</select>
+	
+	<select id="countByTitle" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM xboard WHERE title LIKE '%' || #{title} || '%'
+	</select>
+	
+	<select id="countByWriter" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM xboard WHERE writer LIKE '%' || #{writer} || '%'
+	</select>
+	
+	<select id="countByContent" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM xboard WHERE content LIKE '%' || #{content} || '%'
+	</select>
+	
+	<select id="countByAll" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM xboard WHERE title LIKE '%' || #{all} || '%'
+		OR writer LIKE '%' || #{all} || '%'
+		OR content LIKE '%' || #{all} || '%'
+	</select>
+	
 </mapper>
