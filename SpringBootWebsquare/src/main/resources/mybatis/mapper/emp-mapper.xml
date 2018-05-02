@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.example.websquare.repository.EmpMapper">
+	<resultMap type="Emp" id="empResultMap">
+		<result property="empno" column="EMPNO"/>
+		<result property="name" column="NAME"/>
+		<result property="job" column="JOB"/>
+		<result property="salary" column="SALARY"/>
+		<result property="hiredate" column="HIREDATE"/>
+	</resultMap>
+	
+	<select id="findAllEmps" resultMap="empResultMap">
+		SELECT * FROM emp ORDER BY empno ASC
+	</select>
+	
+	<select id="findByEmpno" parameterType="int" resultMap="empResultMap">
+		SELECT * FROM emp WHERE empno = #{empno}
+	</select>
+	
+	<insert id="saveEmp">
+		INSERT INTO emp(name, job, salary) VALUES(#{name}, #{job}, #{salary})
+	</insert>
+	
+	<update id="updateEmp">
+		UPDATE emp SET name=#{name}, job=#{job}, salary=#{salary} WHERE empno=#{empno}
+	</update>
+	
+	<delete id="deleteEmpByEmpno">
+		DELETE FROM emp WHERE empno=#{empno}
+	</delete>
+	
+	<delete id="deleteAllEmps">
+		DELETE FROM emp
+	</delete>
+</mapper>
