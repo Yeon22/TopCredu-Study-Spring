@@ -27,7 +27,7 @@ public class RestAPIController {
 	@Autowired
 	EmpServiceImpl empService;
 	
-	@RequestMapping(value = "/emp/", method = RequestMethod.GET)
+	@RequestMapping(value = "/emp/", method = RequestMethod.POST)
 	public ResponseEntity<List<Emp>> listAllEmps(){
 		logger.info("Select All Emps");
 		
@@ -39,7 +39,7 @@ public class RestAPIController {
 		return new ResponseEntity<List<Emp>>(emps, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/emp/{empno}", method = RequestMethod.GET)
+	@RequestMapping(value = "/emp/{empno}", method = RequestMethod.POST)
 	public ResponseEntity<Emp> getEmp(@PathVariable("empno") int empno) {
 		logger.info("Fetching Emp with empno {}", empno);
 		
