@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="onj.edu.mybatis.dao.MyEmpDao">
+	<resultMap type="myemp" id="myemp">
+		<result property="empno" column="empno" />
+		<result property="ename" column="ename" />
+	</resultMap>
+	
+	<select id="getMyEmp" parameterType="int" resultMap="myemp">
+		SELECT empno, ename FROM myemp WHERE empno=#{empno}
+	</select>
+	
+	<insert id="setMyEmp" parameterType="onj.edu.mybatis.model.MyEmp">
+		INSERT INTO myemp(empno, ename) VALUES(#{empno}, #{ename})
+	</insert>
+	
+	<update id="updateMyEmp" parameterType="onj.edu.mybatis.model.MyEmp">
+		UPDATE myemp SET ename=#{ename} WHERE empno=#{empno}
+	</update>
+</mapper>
