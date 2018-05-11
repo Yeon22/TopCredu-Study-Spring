@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.emp.server.model.Emp;
 import com.emp.server.service.EmpServiceImpl;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", maxAge = 3600) //origins = "*" : 모든 접속 허용
 @RestController
 @RequestMapping("/api")
 public class EmpRestController {
