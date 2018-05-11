@@ -23,7 +23,7 @@ import com.example.employee.error.CustomErrorType;
 import com.example.employee.model.Employee;
 import com.example.employee.service.EmployeeServiceImpl;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class EmployeeRestController {
