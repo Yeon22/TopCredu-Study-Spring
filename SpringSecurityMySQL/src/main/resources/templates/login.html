@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta content="text/html; charset=UTF-8">
+<title>Login Page</title>
+<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div class="container">
+		<div class="col-sm-4 col-sm-offset-4" style="margin-top: 25px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<div>
+							<span>Sign In</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel-body" id="login-panel-body">
+					<div th:if="${param.error}" class="alert alert-danger col-sm-12">
+						<span>Invalid Email or Password</span>
+					</div>
+					
+					<div th:if="${param.logout}" class="alert alert-success col-sm-12">
+						<span>You've successfully logged out</span>
+					</div>
+					
+					<form method="POST" action="/login">
+						<div class="form-group">
+							<label for="username">Username:</label>
+							<input class="form-control" id="username" name="username" placeholder="username" type="text"/>
+						</div>
+						<div class="form-group">
+							<label for="password">Password:</label>
+							<input class="form-control" id="password" name="password" placeholder="password" type="password"/>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success form=control">Login</button>
+						</div>
+					</form>
+				</div>
+				
+				<div class="panel-footer">
+					<a th:href="@{/}">Home Page</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{https://code.jquery.com/jquery-3.2.1.min.js}"></script>
+	<script th:src="@{https://code.jquery.com/ui/1.12.1/jquery-ui.min.js}"></script>
+	<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>
