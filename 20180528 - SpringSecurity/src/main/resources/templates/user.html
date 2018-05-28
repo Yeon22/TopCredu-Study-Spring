@@ -14,7 +14,7 @@
 
         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
         <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+            <button class="btn btn-primary" type="submit">Sign Out</button>
         </form>
 
     </div>
@@ -22,6 +22,5 @@
 </div>
 <!-- /.container -->
 <div th:replace="fragments/footer :: footer"></div>
-
 </body>
 </html>
